@@ -14,20 +14,20 @@ var staticConfig = {
   jsonFixturesPreprocessor: {
     variableName: '__json__'
   },
-  reporters: ['mocha'],
+  reporters: ['dots'],
   port: 9876,
   colors: true,
   autoWatch: true,
   browsers: [
     'PhantomJS'
-    // 'IE11 - Win7'
+    //'IE11 - Win7'
   ],
   singleRun: true,
   concurrency: Infinity,
-  browserDisconnectTimeout: 240000,
-  browserDisconnectTolerance : 1,
-  browserNoActivityTimeout: 240000,
-  captureTimeout: 240000,
+  browserDisconnectTimeout: 800000,
+  browserDisconnectTolerance : 4,
+  browserNoActivityTimeout: 800000,
+  captureTimeout: 800000,
   customLaunchers: {
     PhantomJSDebug: {
       base: 'PhantomJS',
@@ -41,8 +41,7 @@ var staticConfig = {
   client: {
     captureConsole: true,
     mocha: {
-      timeout : 20000, // 20 seconds
-      grep: ''
+      timeout : 800000, // 800 seconds
     }
   }
 };

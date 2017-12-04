@@ -1,4 +1,3 @@
-
 <html>
   <head></head>
   <body>
@@ -23,9 +22,15 @@
       var recurly = new parent.recurly.Recurly(recurlyConfig());
       var inputs = body.inputs;
       var id = body.id;
+      var frame;
 
       for (var i = 0; i < window.parent.frames.length; i++) {
-        var frame = window.parent.frames[i].contentWindow || window.parent.frames[i];
+        frame = window.parent.frames[i].contentWindow || window.parent.frames[i];
+        if (frame === undefined) window.parent.frames.splice(i, 1);
+      }
+
+      for (var i = 0; i < window.parent.frames.length; i++) {
+        frame = window.parent.frames[i].contentWindow || window.parent.frames[i];
         inputs[frame.config().type] = frame.value();
       }
 

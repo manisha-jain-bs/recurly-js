@@ -240,6 +240,7 @@ describe('Recurly.configure', function () {
       configureRecurly(this.recurly, 1, () => {
         assert(document.querySelector('#number-1 iframe') instanceof HTMLIFrameElement);
         assert.equal(document.querySelector('#number-2 iframe'), null);
+        done();
         configureRecurly(this.recurly, 2, () => {
           assert(document.querySelector('#number-2 iframe') instanceof HTMLIFrameElement);
           assert.equal(document.querySelector('#number-1 iframe'), null);
